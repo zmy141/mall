@@ -88,9 +88,9 @@ export default {
 </script>
     
 <style>
-    .wrapper{
+    /* .wrapper{
         height: 100px;
         background-color: brown;
         overflow: hidden;
-    }
+    } */
 </style>

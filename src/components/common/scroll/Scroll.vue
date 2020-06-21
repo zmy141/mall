@@ -43,7 +43,19 @@ export default {
         //监听上拉事件
         this.scroll.on('pullingUp',()=>{
             this.$emit('pullingup')
-        })
+        })       
+    },
+    methods:{
+        scrollTo(x,y,time){
+            this.scroll&&this.scroll.scrollTo(x,y,time)
+        },
+        finishPullUp(){
+            this.scroll&&this.scroll.finishPullUp()
+        },
+        refresh(){
+            console.log('11111')
+            this.scroll&&this.scroll.refresh()
+        }
     }
 }
 </script>

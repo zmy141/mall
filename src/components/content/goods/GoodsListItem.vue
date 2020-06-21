@@ -1,6 +1,7 @@
 <template>
-    <div class="goods-item">
-        <img :src= "goodsItem.show.img" alt="">
+    <div class="goods-item" @click= "ItemClick">
+        <!-- 在vue中通过load函数可以监听图片是否加载完成 -->
+        <img :src= "goodsItem.show.img" alt="" @load= 'imgload'>
         <div class='goods-info'>
             <p>{{goodsItem.title}}</p>
             <span class='price'>{{goodsItem.price}}</span>
@@ -18,6 +19,14 @@ export default {
             default(){
                 return {}
             }
+        }
+    },
+    methods:{
+        imgload(){
+            this.$bus.$emit('itemImgload')
+        },
+        ItemClick(){
+            this.$router.push('/detail/'+this.goodsItem.iid)
         }
     }
 }
