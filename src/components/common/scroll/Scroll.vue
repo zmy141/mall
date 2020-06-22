@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" ref='wrapper'>
+  <div class="wrapper1" ref='wrapper'>
       <div class='content'>
           <slot></slot>
       </div>
@@ -53,7 +53,7 @@ export default {
             this.scroll&&this.scroll.finishPullUp()
         },
         refresh(){
-            console.log('11111')
+            // console.log('11111')
             this.scroll&&this.scroll.refresh()
         }
     }
@@ -61,5 +61,4 @@ export default {
 </script>
 
 <style>
-
 </style>
