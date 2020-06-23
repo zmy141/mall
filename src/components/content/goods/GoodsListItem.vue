@@ -1,7 +1,7 @@
 <template>
     <div class="goods-item" @click= "ItemClick">
         <!-- 在vue中通过load函数可以监听图片是否加载完成 -->
-        <img :src= "showImage" alt="" @load= 'imgload'>
+        <img v-lazy= "showImage" alt="" @load= 'imgload'>
         <div class='goods-info'>
             <p>{{goodsItem.title}}</p>
             <span class='price'>{{goodsItem.price}}</span>
@@ -50,7 +50,7 @@ export default {
     }
     .goods-info{
         position: absolute;
-        bottom: 5px;
+        bottom: 1px;
         left: 0;
         right: 0;
         overflow: hidden;

@@ -16,6 +16,7 @@
         </scroll>
             <detail-bottom-bar @addToCart = 'addToCart'></detail-bottom-bar>
             <back-top class= 'back-top' @click.native= "backclick" v-show= 'isShowBackTop'></back-top>
+            
     </div>
 </template>
 
@@ -51,6 +52,7 @@ export default {
        GoodsList,
        DetailBottomBar,
        scroll,
+    //    Toast
        
     },
     mixins:[itemListenerMixin,backTopMixin],
@@ -67,7 +69,8 @@ export default {
             themeTopsY:[],
             getThemeTopsY:null,
             currentindex1:0,
-            
+            // message:'',
+            // show:false
         }
     },
     created(){   
@@ -176,7 +179,19 @@ export default {
 
             //将商品添加到购物车里,使用vuex保存
             // this.$store.commit('addCart',product)
-            this.$store.dispatch('addCart',product)
+            //也可以用mapActions将addCart函数映射到detail.vue里的methods里面
+            //通过this.addCart(product).then()调用
+            this.$store.dispatch('addCart',product).then(res=>{
+                // this.message = res
+                // this.show = true
+                // setTimeout(()=>{
+                //     this.show = false
+                //     this.message = ''
+                // },1000)
+                this.$toast.show(res,1000)
+                // console.log(this.$toast)
+                
+            })
         }
     }
 }
